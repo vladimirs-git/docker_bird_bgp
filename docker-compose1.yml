@@ -1,0 +1,43 @@
+version: "3"
+services:
+  router1:
+    build: .
+    container_name: router1
+    hostname: router1
+    privileged: true
+    volumes:
+      - ./configs1/router1/etc/bird:/etc/bird
+    networks:
+      r1_lan:
+        ipv4_address: 10.1.11.254
+      r1_r2:
+        ipv4_address: 10.1.2.101
+  router2:
+    build: .
+    container_name: router2
+    hostname: router2
+    privileged: true
+    volumes:
+      - ./configs1/router2/etc/bird:/etc/bird
+    networks:
+      r2_lan:
+        ipv4_address: 10.2.11.254
+      r1_r2:
+        ipv4_address: 10.1.2.102
+
+networks:
+  r1_lan:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.1.11.0/24"
+  r2_lan:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.2.11.0/24"
+  r1_r2:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: "10.1.2.0/24"

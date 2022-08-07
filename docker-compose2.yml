@@ -1,0 +1,104 @@
+version: "3"
+services:
+  router1:
+    build: .
+    container_name: router1
+    hostname: router1
+    privileged: true
+    volumes:
+      - ./configs2/router1/etc/bird:/etc/bird
+    networks:
+      r1_lan:
+        ipv4_address: 10.1.11.254
+      r1_r2:
+        ipv4_address: 10.1.2.101
+      r1_r3:
+        ipv4_address: 10.1.3.101
+      r1_r4:
+        ipv4_address: 10.1.4.101
+  router2:
+    build: .
+    container_name: router2
+    hostname: router2
+    privileged: true
+    volumes:
+      - ./configs2/router2/etc/bird:/etc/bird
+    networks:
+      r1_r2:
+        ipv4_address: 10.1.2.102
+      r2_r3:
+        ipv4_address: 10.2.3.102
+      r2_r4:
+        ipv4_address: 10.2.4.102
+  router3:
+    build: .
+    container_name: router3
+    hostname: router3
+    privileged: true
+    volumes:
+      - ./configs2/router3/etc/bird:/etc/bird
+    networks:
+      r1_r3:
+        ipv4_address: 10.1.3.103
+      r2_r3:
+        ipv4_address: 10.2.3.103
+      r3_r4:
+        ipv4_address: 10.3.4.103
+  router4:
+    build: .
+    container_name: router4
+    hostname: router4
+    privileged: true
+    volumes:
+      - ./configs2/router4/etc/bird:/etc/bird
+    networks:
+      r4_lan:
+        ipv4_address: 10.4.11.254
+      r1_r4:
+        ipv4_address: 10.1.4.104
+      r2_r4:
+        ipv4_address: 10.2.4.104
+      r3_r4:
+        ipv4_address: 10.3.4.104
+
+networks:
+  r1_lan:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.1.11.0/24"
+  r4_lan:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.4.11.0/24"
+  r1_r2:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: "10.1.2.0/24"
+  r1_r3:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: "10.1.3.0/24"
+  r1_r4:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.1.4.0/24"
+  r2_r3:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: "10.2.3.0/24"
+  r2_r4:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.2.4.0/24"
+  r3_r4:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "10.3.4.0/24"
