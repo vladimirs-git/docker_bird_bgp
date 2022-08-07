@@ -78,6 +78,9 @@ BIRD show output
 
     docker-compose -f docker-compose2.yml exec router1 bash
 
+    root@router1:/# birdc
+    BIRD 1.6.6 ready.
+
     bird> show protocol
     name     proto    table    state  since       info
     kernel1  Kernel   master   up     20:01:24
