@@ -23,7 +23,12 @@ Simple config
 -------------
 |diagram1|
 
-Docker up
+BIRD configs
+
+.. code:: text
+
+
+Dockers up
 
 .. code:: bash
 
@@ -55,7 +60,7 @@ BIRD show output
     root@router1:/# exit
 
 
-Docker down
+Dockers down
 
 .. code:: bash
 
@@ -66,7 +71,7 @@ Advanced config
 ---------------
 |diagram2|
 
-Docker up
+Dockers up
 
 .. code:: bash
 
@@ -77,6 +82,9 @@ BIRD show output
 .. code:: bash
 
     docker-compose -f docker-compose2.yml exec router1 bash
+
+    root@router1:/# birdc
+    BIRD 1.6.6 ready.
 
     bird> show protocol
     name     proto    table    state  since       info
@@ -131,7 +139,7 @@ BIRD show output
     bird> exit
     root@router1:/# exit
 
-Docker down
+Dockers down
 
 .. code:: bash
 
