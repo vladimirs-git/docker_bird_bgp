@@ -26,54 +26,56 @@ Simple config
 BIRD configs
 
 router1
-.. code:: text
 
-	router id 10.0.0.1;
+.. code-block::
 
-	protocol kernel {
-	  metric 0;
-	  import none;
-	  learn;
-	  export all;
-	}
+    router id 10.0.0.1;
 
-	protocol device {
-	}
+    protocol kernel {
+      metric 0;
+      import none;
+      learn;
+      export all;
+    }
 
-	protocol direct {
-	}
+    protocol device {
+    }
 
-	protocol bgp router2 {
-	  local as 65001;
-	  neighbor 10.1.2.102 as 65002;
-	  import all;
-	  export all;
-	}
+    protocol direct {
+    }
+
+    protocol bgp router2 {
+      local as 65001;
+      neighbor 10.1.2.102 as 65002;
+      import all;
+      export all;
+    }
 
 router2
-.. code:: text
 
-	router id 10.0.0.2;
+.. code-block::
 
-	protocol kernel {
-	  metric 0;
-	  import none;
-	  learn;
-	  export all;
-	}
+    router id 10.0.0.2;
 
-	protocol device {
-	}
+    protocol kernel {
+      metric 0;
+      import none;
+      learn;
+      export all;
+    }
 
-	protocol direct {
-	}
+    protocol device {
+    }
 
-	protocol bgp router1 {
-	  local as 65002;
-	  neighbor 10.1.2.101 as 65001;
-	  import all;
-	  export all;
-	}
+    protocol direct {
+    }
+
+    protocol bgp router1 {
+      local as 65002;
+      neighbor 10.1.2.101 as 65001;
+      import all;
+      export all;
+    }
 
 
 Dockers up
