@@ -19,11 +19,13 @@ Download sandbox
     cd docker_bird_bgp
 
 
-Simple config
--------------
+Simple config1
+--------------
 |diagram1|
 
+
 BIRD configs
+............
 
 router1
 
@@ -50,7 +52,6 @@ router1
       import all;
       export all;
     }
-
 
 router2
 
@@ -79,7 +80,34 @@ router2
     }
 
 
+similar Cisco configs
+.....................
+
+router1
+
+.. code-block::
+
+    router bgp 65001
+     bgp router-id 10.0.0.1
+     neighbor 10.1.2.102 remote-as 65002
+     !
+     address-family ipv4
+      neighbor 10.1.2.102 activate
+
+    router2
+
+.. code-block::
+
+    router bgp 65002
+     bgp router-id 10.0.0.2
+     neighbor 10.1.2.101 remote-as 65001
+     !
+     address-family ipv4
+      neighbor 10.1.2.101 activate
+
+
 Dockers up
+..........
 
 .. code:: bash
 
@@ -87,7 +115,7 @@ Dockers up
 
 BIRD show output
 
-.. code:: bash
+.. code-block::
 
     docker-compose -f docker-compose1.yml exec router1 bash
 
@@ -112,14 +140,15 @@ BIRD show output
 
 
 Dockers down
+............
 
 .. code:: bash
 
     docker-compose -f docker-compose1.yml down
 
 
-Advanced config
----------------
+Advanced config2
+----------------
 |diagram2|
 
 Dockers up
@@ -130,7 +159,7 @@ Dockers up
 
 BIRD show output
 
-.. code:: bash
+.. code-block::
 
     docker-compose -f docker-compose2.yml exec router1 bash
 
