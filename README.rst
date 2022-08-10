@@ -151,7 +151,16 @@ Advanced config2
 ----------------
 |diagram2|
 
+BIRD configs
+............
+TODO
+
+similar Cisco configs
+.....................
+TODO
+
 Dockers up
+..........
 
 .. code:: bash
 
@@ -219,7 +228,9 @@ BIRD show output
     bird> exit
     root@router1:/# exit
 
+
 Dockers down
+............
 
 .. code:: bash
 
