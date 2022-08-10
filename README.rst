@@ -26,7 +26,7 @@ Simple config
 BIRD configs
 
 router1
-.. code:: text
+.. code-block::
 
 	router id 10.0.0.1;
 
@@ -51,7 +51,7 @@ router1
 	}
 
 router2
-.. code:: text
+.. code-block::
 
 	router id 10.0.0.2;
 
