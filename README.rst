@@ -80,7 +80,7 @@ router2
     }
 
 
-similar Cisco configs
+Similar Cisco configs
 .....................
 
 router1
@@ -106,8 +106,10 @@ router1
       neighbor 10.1.2.101 activate
 
 
+Dockers
+.......
+
 Dockers up
-..........
 
 .. code:: bash
 
@@ -138,9 +140,7 @@ BIRD show output
     bird> exit
     root@router1:/# exit
 
-
 Dockers down
-............
 
 .. code:: bash
 
@@ -153,14 +153,16 @@ Advanced config2
 
 BIRD configs
 ............
-TODO
+TODO documentation
 
-similar Cisco configs
+Similar Cisco configs
 .....................
-TODO
+TODO documentation
+
+Dockers
+.......
 
 Dockers up
-..........
 
 .. code:: bash
 
@@ -228,9 +230,7 @@ BIRD show output
     bird> exit
     root@router1:/# exit
 
-
 Dockers down
-............
 
 .. code:: bash
 
